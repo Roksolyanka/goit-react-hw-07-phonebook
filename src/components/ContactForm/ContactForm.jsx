@@ -4,7 +4,7 @@ import { Form } from './Form.styled';
 import { Input } from './Input.styled';
 import { Button } from './Button.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { setName, setNumber } from 'redux/contactsDetailsReducer';
+import { setName, setNumber } from 'redux/contactsDetailsSlice';
 import { selectName, selectPhone } from 'redux/selectors';
 
 export const ContactForm = ({ onSubmit }) => {

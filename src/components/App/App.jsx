@@ -15,7 +15,7 @@ import {
   setFilter,
   setName,
   setNumber,
-} from 'redux/contactsDetailsReducer';
+} from 'redux/contactsDetailsSlice';
 
 import {
   addContactDataThunk,
