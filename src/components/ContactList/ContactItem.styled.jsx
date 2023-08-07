@@ -11,5 +11,5 @@ export const ContactItem = styled.li`
   list-style: none;
   display: flex;
   justify-content: space-between;
-  width: 730px;
+  width: 750px;
 `;

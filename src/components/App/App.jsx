@@ -27,6 +27,7 @@ import {
   selectContacts,
   selectError,
   selectFilter,
+  // selectFindContacts,
   selectIsLoading,
   selectName,
   selectPhone,
@@ -39,6 +40,7 @@ export const App = () => {
   const phone = useSelector(selectPhone);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  // const findContacts = useSelector(selectFindContacts)
 
   const dispatch = useDispatch();
 
@@ -68,7 +70,6 @@ export const App = () => {
 
   const findContacts = () => {
     const normalizedFilter = filter.toLowerCase();
-    console.log('Відбулась дороговартісна операція (цикл в циклі)');
     return contacts?.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
