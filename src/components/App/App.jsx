@@ -51,9 +51,13 @@ export const App = () => {
   }, [dispatch]);
 
   const addContact = () => {
-    const contactExists = duplicationContacts(name);
-    if (contactExists) {
+    const contactNameExists = duplicationNameContacts(name);
+    const contactNumberExists = duplicationNumberContacts(phone);
+    if (contactNameExists) {
       alert(`${name} is already in contacts!`);
+      return;
+    } else if (contactNumberExists) {
+      alert(`${phone} is already in contacts!`);
       return;
     }
 
@@ -87,9 +91,15 @@ export const App = () => {
     }
   };
 
-  const duplicationContacts = name => {
+  const duplicationNameContacts = name => {
     return contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
+  };
+
+  const duplicationNumberContacts = phone => {
+    return contacts.some(
+      contact => contact.phone === phone
     );
   };
 
