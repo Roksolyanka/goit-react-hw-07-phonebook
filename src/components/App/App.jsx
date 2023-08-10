@@ -32,6 +32,8 @@ import {
   selectName,
   selectPhone,
 } from 'redux/selectors';
+import { Container } from './Container.styled';
+import { ContainerForm } from './ContainerForm.styled';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
@@ -96,29 +98,35 @@ export const App = () => {
   return (
     <div>
       <TitlePhonebook>Phonebook</TitlePhonebook>
-      <ContactForm
-        name={name}
-        number={phone}
-        onChangeName={name => dispatch(setName(name))}
-        onChangeNumber={phone => dispatch(setNumber(phone))}
-        onSubmit={addContact}
-      />
-      <TitleContacts>Contacts</TitleContacts>
-      {isLoading ? (
-        <Loader></Loader>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : contacts.length > 0 ? (
-        <>
-          <Filter value={filter} onChange={changeFilter} />
-          <ContactList
-            contacts={filteredContacts}
-            onDeleteContact={deleteContacts}
+      <Container>
+        <ContainerForm>
+          <ContactForm
+            name={name}
+            number={phone}
+            onChangeName={name => dispatch(setName(name))}
+            onChangeNumber={phone => dispatch(setNumber(phone))}
+            onSubmit={addContact}
           />
-        </>
-      ) : (
-        <NoContacts>No contacts found.</NoContacts>
-      )}
+        </ContainerForm>
+        <div>
+          <TitleContacts>Contacts</TitleContacts>
+          {isLoading ? (
+            <Loader></Loader>
+          ) : error ? (
+            <p>Error: {error}</p>
+          ) : contacts.length > 0 ? (
+            <>
+              <Filter value={filter} onChange={changeFilter} />
+              <ContactList
+                contacts={filteredContacts}
+                onDeleteContact={deleteContacts}
+              />
+            </>
+          ) : (
+            <NoContacts>No contacts found.</NoContacts>
+          )}
+        </div>
+      </Container>
     </div>
   );
 };

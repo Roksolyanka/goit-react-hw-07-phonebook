@@ -7,4 +7,9 @@ export const InputFind = styled.input`
   vertical-align: top;
   font-size: 20px;
   font-weight: bold;
+  background-color: #e2e2e2;
+
+  &: hover, focus {
+    box-shadow: #ffe724 0px 10px 20px, #ffe724 0px 2px 5px;
+  }
 `;
